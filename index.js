@@ -10,6 +10,7 @@ var bunyan = require('bunyan'),
 module.exports.getLogger = function(name, opts) {
     var matches, options;
 
+    opts = opts || {};
     matches = name.match(/\/[^\/]+$/g);
     if (matches) {
         name = matches[0];
