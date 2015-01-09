@@ -1,5 +1,5 @@
-var bunyan = require('bunyan')
-    , path = require('path');
+var bunyan = require('bunyan'),
+    path = require('path');
 
 
 /***
@@ -7,16 +7,19 @@ var bunyan = require('bunyan')
  * @param name {string}
  * @returns {bunyan logger}
  */
-module.exports.getLogger = function (name) {
-    var matches;
+module.exports.getLogger = function(name, opts) {
+    var matches, options;
 
-    matches=name.match(/\/[^\/]+$/g);
+    matches = name.match(/\/[^\/]+$/g);
     if (matches) {
-        name=matches[0];
+        name = matches[0];
     }
 
-    return bunyan.createLogger({
-        name  : name,
-        stream: process.stdout
-    });
+    options = {};
+    options.name = name;
+    options.stream = process.stdout;
+    options.level = opts.level || 'info';
+
+
+    return bunyan.createLogger(options);
 }
