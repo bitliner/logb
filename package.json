@@ -10,5 +10,9 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "bunyan": "~0.22.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-google": "^0.7.1"
   }
 }
