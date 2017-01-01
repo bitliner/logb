@@ -1,16 +1,17 @@
-var bunyan = require('bunyan'),
-    path = require('path');
+let bunyan = require('bunyan');
 
 
-/***
- *
- * @param name {string}
- * @returns {bunyan logger}
+/**
+ * [getLogger description]
+ * @param  {[type]} name [description]
+ * @param  {[type]} opts [description]
+ * @return {[type]}      [description]
  */
 module.exports.getLogger = function(name, opts) {
-    var matches, options;
+    let matches;
+    let options;
 
-    var logLevel;
+    let logLevel;
 
     opts = opts || {};
 
@@ -29,4 +30,4 @@ module.exports.getLogger = function(name, opts) {
 
 
     return bunyan.createLogger(options);
-}
+};
